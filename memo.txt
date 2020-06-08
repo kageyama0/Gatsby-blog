@@ -1,0 +1,26 @@
+  const rootPath = `${__PATH_PREFIX__}/`
+
+            className="bg-dark"
+            style={{
+              ...scale(0.5),
+              marginBottom: rhythm(1.5),
+              marginTop: 0,
+            }}
+
+              <br></br>
+              HTML,CSSを軽く学んだ後、3月下旬からWeb系受託開発会社でアルバイトを開始
+              <br></br>
+              バイトでは、
+              <br></br>
+              ・Three.jsを用いた開発を単独で行った
+              <br></br>
+              ・Djangoを使ってWebアプリをチーム開発
+              <br></br>
+              ・Unityを使ったゲームアプリ開発
+              <br></br>
+              などを経験した。
+
+                            <br></br>
+              言語 : python/JavaScript/HTML/CSS...
+              <br></br>
+              フレームワーク：Three.js/React.js/Django/Ruby on rails
