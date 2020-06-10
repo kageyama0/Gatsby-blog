@@ -7,7 +7,6 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 import { rhythm } from "../utils/typography"
 
 //for fontawesome
@@ -26,10 +25,6 @@ const Bio = () => {
       }
       site {
         siteMetadata {
-          author {
-            name
-            summary
-          }
           social {
             twitter
           }
@@ -38,9 +33,8 @@ const Bio = () => {
     }
   `)
 
-  // avatarから読み込んだ猫の画像と
   // author(name, summary) + social(twitter)
-  const { author, social } = data.site.siteMetadata
+  const social = data.site.siteMetadata
   return (
     <div
       style={{

@@ -1,37 +1,54 @@
 const path = require(`path`)
+const shortid = require('shortid');
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const filePath = createFilePath({ node, getNode })
+    //console.log(node.fileAbsolutePath)
+    // console.log(filePath)
+
+    // この変数名をvalueにしないとバグる
+    const id = shortid.generate()
+    const value = filePath + id
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  // このgraphQL文を実行して、ブログたちのデータを取得する
   const result = await graphql(
-    `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+    `{
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
       }
-    `
+    }`
   )
 
   if (result.errors) {
     throw result.errors
   }
 
-  // Create blog posts pages.
+  // posts = これまで作成したブログたち
   const posts = result.data.allMarkdownRemark.edges
 
   posts.forEach((post, index) => {
@@ -40,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: blogPost,
+      component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -48,17 +65,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
 }
