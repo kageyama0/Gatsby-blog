@@ -9,7 +9,8 @@ import {
   Nav,
   Navbar
 } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "../../styles/components/layout/header.scss"
 
 const Header = ({ title, author }) => {
   return (
@@ -46,9 +47,10 @@ const Header = ({ title, author }) => {
         <Container>
           <Row>
             <Nav xs={12} className="mr-auto">
-              <Nav.Link href="#">Home</Nav.Link>
-              <Nav.Link href="#About">About me</Nav.Link>
-              <Nav.Link href="#Blog">Blog</Nav.Link>
+              <Nav.Link className="header-nav" href="#">Home</Nav.Link>
+              <Nav.Link className="header-nav" href="#About">About me</Nav.Link>
+              <Nav.Link className="header-nav" href="#Blog">Blog</Nav.Link>
+              <Nav.Link className="header-nav" href="/tags">Tags</Nav.Link>
             </Nav>
           </Row>
         </Container>

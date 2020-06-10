@@ -1,12 +1,13 @@
 import React from "react"
 import { PageProps, graphql } from "gatsby"
 import Layout from "../components/layout/layout.js"
-import SEO from "../components/seo"
+import Seo from "../elements/seo"
 import {
   Container,
   Row,
   Col,
 } from 'react-bootstrap'
+
 // 使うデータの定義
 type Data = {
   site: {
@@ -26,6 +27,7 @@ type Data = {
           title: string
           date: string
           description: string
+          tags: string[]
         }
         fields: {
           slug: string
@@ -41,7 +43,7 @@ const About = ({ data }: PageProps<Data>) => {
 
   return (
     <Layout title={siteTitle} author={author}>
-      <SEO title="About me" />
+      <Seo title="About me" />
       <Container>
         <Row>
           <Col>a</Col>
@@ -77,6 +79,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

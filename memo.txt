@@ -71,3 +71,27 @@ content/blogからのパスでありファイル名がslugになる。(❌)
 ・graphQLに新しい項目を追加するには?
   やりたいことは,previous.node.idとかをしたい
   --> onCreateNode
+
+
+
+        <Container>
+          <Row>
+            <Col className="picks" xs={12}>
+
+            </Col>
+            <article itemScope="itemscope" itemType="http://shema.org/BlogPosting" itemProp="blogPost">
+              <section>
+                <Col xs={12} sm={8} itemProp="articleBody">
+                  <div itemProp="author" itemScope itemType="https://shema.org/Person" style={{ display: "none" }}>
+                    <span itemProp="name">{author}</span>
+                  </div>
+                  <div itemProp="publisher" itemScope itemType="https://shema.org/Organization" style={{ display: "none" }}>
+                    <span itemProp="name">飽き性エンジニア</span>
+                    <span itemProp="name">{author}</span>
+                  </div>
+                  {children}
+                </Col>
+              </section>
+            </article>
+          </Row>
+        </Container>

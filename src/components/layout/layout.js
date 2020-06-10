@@ -1,24 +1,23 @@
 import React from "react"
-import { rhythm } from "../../utils/typography"
 import Header from "./header.js"
 import Footer from "./footer.js"
+// import {
+//   Container,
+//   Row,
+//   Col
+// } from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// header
+import "../../styles/components/layout/layout.scss"
 
 const Layout = ({ title, author, children }) => {
+  console.log()
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: `100%`,
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
+    <div>
       <Header title={title} author={author}/>
-      <main>{children}</main>
+      <main id="main" itemProp="mainContentOfPage" itemScope="itemscope" itemType="https://schema.org/Blog">
+        {children}
+      </main>
       <Footer title={title} author={author} />
     </div>
   )

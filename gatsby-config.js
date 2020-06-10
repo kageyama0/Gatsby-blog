@@ -13,6 +13,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -77,5 +78,11 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-sass',
+    //   // options: {
+    //   //   data: `@import "${__dirname}/src/styles/styles";`,
+    //   // }
+    // }
   ],
 }

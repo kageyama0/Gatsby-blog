@@ -1,0 +1,22 @@
+.wrap{
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 10px;
+
+}
+.meta{
+  font-size: 13px;
+  color: #7B7B7B;
+}
+.title{
+  > a {
+    font-weight: 600;
+    color: #7B7B7B;
+    line-height: 40px;
+  }
+}
+
+.description{
+  padding-right: 40px;
+  padding-left: 40px;
+}

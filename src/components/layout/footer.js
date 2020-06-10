@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { scale } from "../../utils/typography"
-import Bio from "../bio"
+import Bio from "../../elements/bio"
 
 import {
   Container,

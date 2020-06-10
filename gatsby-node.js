@@ -10,7 +10,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     //console.log(node.fileAbsolutePath)
     // console.log(filePath)
 
-    // この変数名をvalueにしないとバグる
+    // 新しく作ったフィールド"slug"の値として受け取る変数名をvalueにしないとなぜかバグる
     const id = shortid.generate()
     const value = filePath + id
     createNodeField({
@@ -37,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               title
+              tags
             }
           }
         }
@@ -50,14 +51,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // posts = これまで作成したブログたち
   const posts = result.data.allMarkdownRemark.edges
+  var tagsArray = []
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
+    const tags = post.node.frontmatter.tags
+    tagsArray = tagsArray.concat(tags)
 
     createPage({
       path: post.node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.js`),
+      tags: post.node.frontmatter.tags,
+      component: path.resolve(`./src/components/templates/blog-post.js`),
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -65,4 +70,29 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  var tags = Array.from(new Set(tagsArray))
+
+  var tagsCount = tags.length
+  // タグ一覧ページを作成。URL: {root_url}/tags
+  createPage({
+    path: `tags/`,
+    component: path.resolve(`./src/components/templates/tagsIndex.js`),
+    context: {
+      tags,
+      tagsCount
+    },
+  })
+
+  // タグ詳細ページを作成。URL: {root_url}/tags/...
+  tags.forEach(tag => {
+    createPage({
+      path: `tags/${tag}`,
+      component: path.resolve(`./src/components/templates/tagPage.js`),
+      context: {
+        tag
+      },
+    })
+  })
+
 }

@@ -2,9 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 // import Bio from "../components/bio"
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Layout from "../layout/layout"
+import Seo from "../../elements/seo"
+import { rhythm, scale } from "../../utils/typography"
 
 // dataは、markdownファイルやmetadataなどのデータ
 // pageContext = (gatsby-node.js内での)context
@@ -16,20 +16,12 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout title={siteTitle} author={author}>
-      <SEO
+      <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
           <p
             style={{
               ...scale(-1 / 5),
@@ -39,6 +31,17 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           >
             {post.frontmatter.date}
           </p>
+          <h1
+            style={{
+              marginTop: rhythm(1),
+              marginBottom: 0,
+            }}
+          >
+            {post.frontmatter.title}
+          </h1>
+          {post.frontmatter.tags.map((tag) =>
+            <p>{tag}</p>
+          )}
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -99,6 +102,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

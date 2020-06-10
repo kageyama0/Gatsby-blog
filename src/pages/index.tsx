@@ -1,11 +1,10 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { PageProps, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-
+import Article from "../components/article"
+import Seo from "../elements/seo"
 
 // 使うデータの定義
 type Data = {
@@ -26,6 +25,7 @@ type Data = {
           title: string
           date: string
           description: string
+          tags: string[]
         }
         fields: {
           slug: string
@@ -42,35 +42,10 @@ const BlogIndex = ({ data }: PageProps<Data>) => {
 
   return (
     <Layout title={siteTitle} author={author}>
-      <SEO title="Home" />
-
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-
+      <Seo title="Home" />
+      {posts.map(({ node }) => (
+        <Article key={node.fields.slug} node={node} />
+      ))}
     </Layout>
   )
 }
@@ -99,6 +74,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }
