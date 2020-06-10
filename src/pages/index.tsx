@@ -35,14 +35,15 @@ type Data = {
   }
 }
 
-const BlogIndex = ({ data, location }: PageProps<Data>) => {
+const BlogIndex = ({ data }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
   const author = data.site.siteMetadata.author
+  const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout title={siteTitle} author={author}>
       <SEO title="Home" />
+
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
@@ -69,6 +70,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
           </article>
         )
       })}
+
     </Layout>
   )
 }

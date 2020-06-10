@@ -6,14 +6,16 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+// dataは、markdownファイルやmetadataなどのデータ
+// pageContext = (gatsby-node.js内での)context
+const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle} author={author}>
+    <Layout title={siteTitle} author={author}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}

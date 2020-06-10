@@ -58,23 +58,23 @@ export default About
 export const pageQuery = graphql`
   query {
     site {
-    siteMetadata {
-    title
+      siteMetadata {
+        title
         author {
-    name
+          name
           summary
         }
       }
     }
     allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC }) {
-    edges {
-    node {
-    excerpt
+      edges {
+        node {
+          excerpt
           fields {
-    slug
-  }
-  frontmatter {
-    date(formatString: "MMMM DD, YYYY")
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
             description
           }
