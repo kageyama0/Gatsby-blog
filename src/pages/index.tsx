@@ -1,11 +1,15 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { PageProps, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-
+import Article from "../components/article"
+import Seo from "../elements/seo"
+import {
+  Container,
+  Row,
+  Col
+} from 'react-bootstrap'
 
 // 使うデータの定義
 type Data = {
@@ -26,6 +30,7 @@ type Data = {
           title: string
           date: string
           description: string
+          tags: string[]
         }
         fields: {
           slug: string
@@ -35,41 +40,30 @@ type Data = {
   }
 }
 
-const BlogIndex = ({ data }: PageProps<Data>) => {
+const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout title={siteTitle} author={author}>
-      <SEO title="Home" />
-
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+    <Layout
+      title={siteTitle}
+      author={author}
+      location={location}
+    >
+      <Seo title="Home" />
+      <Container>
+        <Row>
+          <Col xs={12} sm={8}>
+            {posts.map(({ node }) => (
+              <Article key={node.fields.slug} node={node} />
+            ))}
+          </Col>
+          <Col xs={12} sm={4}>
+              サイドバー
+          </Col>
+        </Row>
+      </Container>
 
     </Layout>
   )
@@ -99,6 +93,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

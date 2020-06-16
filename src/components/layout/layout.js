@@ -1,25 +1,37 @@
 import React from "react"
-import { rhythm } from "../../utils/typography"
-import Header from "./header.js"
-import Footer from "./footer.js"
+import Header from "./header"
+import Footer from "./footer"
+// import {
+//   Container,
+//   Row,
+//   Col
+// } from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../../styles/components/layout/layout.scss"
 
-// header
-
-const Layout = ({ title, author, children }) => {
+const Layout = ({ title, author, children, location }) => {
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: `100%`,
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <Header title={title} author={author}/>
-      <main>{children}</main>
-      <Footer title={title} author={author} />
+    <div>
+      <Header
+        title={title}
+        author={author}
+        location={location}
+      />
+
+      <main
+        id="main"
+        itemProp="mainContentOfPage"
+        itemScope="itemscope"
+        itemType="https://schema.org/Blog"
+      >
+        {children}
+      </main>
+
+      <Footer
+        title={title}
+        author={author}
+      />
     </div>
   )
 }

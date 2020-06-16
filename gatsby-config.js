@@ -10,9 +10,13 @@ module.exports = {
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
       twitter: `akisyoengineer`,
+      qiita: `https://qiita.com/kageyama0`,
+      github: `https://github.com/kageyama0`,
     },
   },
+  
   plugins: [
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -43,7 +47,16 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

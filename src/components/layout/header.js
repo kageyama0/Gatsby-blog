@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { scale } from "../../utils/typography"
+//import Breadcrumb from "../../elements/breadcrumb"
 
 import {
   Container,
@@ -9,9 +10,11 @@ import {
   Nav,
   Navbar
 } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "../../styles/components/layout/header.scss"
 
-const Header = ({ title, author }) => {
+const Header = ({ title, author, location }) => {
+  //console.log(location)
   return (
     <header
       style={{...scale(0.5)}}
@@ -46,13 +49,15 @@ const Header = ({ title, author }) => {
         <Container>
           <Row>
             <Nav xs={12} className="mr-auto">
-              <Nav.Link href="#">Home</Nav.Link>
-              <Nav.Link href="#About">About me</Nav.Link>
-              <Nav.Link href="#Blog">Blog</Nav.Link>
+              <Nav.Link className="header-nav" href="/">Home</Nav.Link>
+              <Nav.Link className="header-nav" href="/about">About me</Nav.Link>
+              <Nav.Link className="header-nav" href="#Blog">Blog</Nav.Link>
+              <Nav.Link className="header-nav" href="/tags">Tags</Nav.Link>
             </Nav>
           </Row>
         </Container>
       </Navbar>
+      {/* <Breadcrumb location={location} /> */}
     </header>
   )
 }

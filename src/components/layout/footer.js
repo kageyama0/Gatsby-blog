@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { scale } from "../../utils/typography"
-import Bio from "../bio"
+import Bio from "../../elements/bio"
 
 import {
   Container,
@@ -39,12 +39,7 @@ const Footer = ({ title, author }) => {
             </Link>
             <Bio />
           </Col>
-          <Col
-            xs={12} md={4}
-            style={{
-              paddingTop: `10px`
-            }}
-          >
+          <Col xs={12} md={4}>
             Written by <strong>{author.name}</strong>
           </Col>
           <Col

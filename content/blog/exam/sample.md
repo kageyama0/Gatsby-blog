@@ -3,6 +3,7 @@ title: Hello World
 author: kageyama
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
+tags: ["exam1","exma2"]
 ---
 
 This is my first post on my new fake blog! How exciting!
