@@ -5,6 +5,11 @@ import { PageProps, graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import Article from "../components/article"
 import Seo from "../elements/seo"
+import {
+  Container,
+  Row,
+  Col
+} from 'react-bootstrap'
 
 // 使うデータの定義
 type Data = {
@@ -35,17 +40,31 @@ type Data = {
   }
 }
 
-const BlogIndex = ({ data }: PageProps<Data>) => {
+const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout title={siteTitle} author={author}>
+    <Layout
+      title={siteTitle}
+      author={author}
+      location={location}
+    >
       <Seo title="Home" />
-      {posts.map(({ node }) => (
-        <Article key={node.fields.slug} node={node} />
-      ))}
+      <Container>
+        <Row>
+          <Col xs={12} sm={8}>
+            {posts.map(({ node }) => (
+              <Article key={node.fields.slug} node={node} />
+            ))}
+          </Col>
+          <Col xs={12} sm={4}>
+              サイドバー
+          </Col>
+        </Row>
+      </Container>
+
     </Layout>
   )
 }

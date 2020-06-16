@@ -2,10 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 
 import TagItems from "../elements/tagItems"
-import {
-  Col
-} from 'react-bootstrap'
-
 import "../styles/components/article.scss"
 
 const Article = ({ node }) => {
@@ -13,9 +9,11 @@ const Article = ({ node }) => {
   const tags = node.frontmatter.tags
 
   return (
-    <Col xs={12} className="wrap">
-      <p className="meta"><time itemProp="datepublished">{node.frontmatter.date}</time></p>
-      <h2 className="title">
+    <div className="article-wrap">
+      <p className="article-date">
+        <time itemProp="datepublished">{node.frontmatter.date}</time>
+      </p>
+      <h2 className="article-title">
         <Link itemProp="url" style={{ boxShadow: `none` }} to={node.fields.slug}>
           {node.frontmatter.title}
         </Link>
@@ -24,11 +22,17 @@ const Article = ({ node }) => {
       <TagItems key={tags} tags={tags} />
       <section>
         <p
-          className="description"
+          className="article-description"
           dangerouslySetInnerHTML={{ __html: text }}
         />
+        <div className="article-readmore" >
+          <Link itemProp="url" style={{ boxShadow: `none` }} to={node.fields.slug}>
+            Read More
+          </Link>
+        </div>
+
       </section>
-    </Col>
+    </div>
   )
 
 };

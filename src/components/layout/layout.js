@@ -1,6 +1,6 @@
 import React from "react"
-import Header from "./header.js"
-import Footer from "./footer.js"
+import Header from "./header"
+import Footer from "./footer"
 // import {
 //   Container,
 //   Row,
@@ -10,15 +10,28 @@ import Footer from "./footer.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../styles/components/layout/layout.scss"
 
-const Layout = ({ title, author, children }) => {
-  console.log()
+const Layout = ({ title, author, children, location }) => {
   return (
     <div>
-      <Header title={title} author={author}/>
-      <main id="main" itemProp="mainContentOfPage" itemScope="itemscope" itemType="https://schema.org/Blog">
+      <Header
+        title={title}
+        author={author}
+        location={location}
+      />
+
+      <main
+        id="main"
+        itemProp="mainContentOfPage"
+        itemScope="itemscope"
+        itemType="https://schema.org/Blog"
+      >
         {children}
       </main>
-      <Footer title={title} author={author} />
+
+      <Footer
+        title={title}
+        author={author}
+      />
     </div>
   )
 }

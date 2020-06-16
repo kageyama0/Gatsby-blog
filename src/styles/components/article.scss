@@ -1,22 +1,39 @@
-.wrap{
-  text-align: center;
+.article-wrap{
+  background-color: white;
   margin-top: 60px;
   margin-bottom: 10px;
-
+  padding: 10px 40px 60px;
+  text-align: center;
 }
-.meta{
+
+.article-date{
+  text-align: center;
   font-size: 13px;
   color: #7B7B7B;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
-.title{
-  > a {
-    font-weight: 600;
-    color: #7B7B7B;
-    line-height: 40px;
+
+.article-title{
+  text-align: center;
+  margin: 30px;
+  font-weight: 600;
+  font-size: 25px;
+  color: #7B7B7B;
+  a{
+    color: gray;
   }
 }
 
-.description{
-  padding-right: 40px;
-  padding-left: 40px;
+.article-description{
+  padding: 40px;
+}
+
+.article-readmore{
+  margin-top: 40px;
+  a{
+    border: 1px solid #909090;
+    color: #7B7B7B;
+    padding: 15px 33px 14px;
+  }
 }

@@ -95,3 +95,12 @@ content/blogからのパスでありファイル名がslugになる。(❌)
             </article>
           </Row>
         </Container>
+
+
+markdownファイルのカスタムには
+yarn add gatsby-transformer-remark gatsby-remark-prismjs prismjs
+参考：https://littlebylittle.work/2020/01/gatsby-syntax-highlighting/
+
+
+Gatsbyプラグイン４５選
+https://qiita.com/Takumon/items/da8347f81a9f021b637f

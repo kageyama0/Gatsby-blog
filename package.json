@@ -28,11 +28,11 @@
     "gatsby-plugin-typography": "^2.5.2",
     "gatsby-remark-copy-linked-files": "^2.3.3",
     "gatsby-remark-images": "^3.3.8",
-    "gatsby-remark-prismjs": "^3.5.2",
+    "gatsby-remark-prismjs": "^3.5.4",
     "gatsby-remark-responsive-iframe": "^2.4.3",
     "gatsby-remark-smartypants": "^2.3.2",
     "gatsby-source-filesystem": "^2.3.8",
-    "gatsby-transformer-remark": "^2.8.13",
+    "gatsby-transformer-remark": "^2.8.15",
     "gatsby-transformer-sharp": "^2.5.3",
     "jsdom": "^16.2.2",
     "node-sass": "^4.14.1",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "prettier": "2.0.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "",
   "keywords": [
     "gatsby"
   ],
@@ -59,7 +59,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": ""
   },
   "scripts": {
     "build": "gatsby build",

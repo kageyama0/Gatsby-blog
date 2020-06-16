@@ -39,12 +39,7 @@ const Footer = ({ title, author }) => {
             </Link>
             <Bio />
           </Col>
-          <Col
-            xs={12} md={4}
-            style={{
-              paddingTop: `10px`
-            }}
-          >
+          <Col xs={12} md={4}>
             Written by <strong>{author.name}</strong>
           </Col>
           <Col

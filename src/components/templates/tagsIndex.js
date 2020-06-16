@@ -4,14 +4,14 @@ import { Link, graphql } from "gatsby"
 import Layout from "../layout/layout"
 //import Seo from "../elements/seo"
 
-const TagsIndex = ({ data, pageContext }) => {
+const TagsIndex = ({ data, pageContext, location }) => {
   const { tags, tagsCount } = pageContext
   //const { edges } = data.allMarkdownRemark;
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
 
   return (
-    <Layout title={siteTitle} author={author}>
+    <Layout title={siteTitle} author={author} location={location} >
       <div>
         {tags.map((tag) =>
           <p key={tag}>{tag}</p>
