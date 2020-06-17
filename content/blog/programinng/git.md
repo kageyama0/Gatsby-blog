@@ -3,7 +3,7 @@ title: git push のエラーのおかげで git tag の存在を知りました�
 author: kageyama
 date: "2020-06-10T17:53:03.284Z"
 description: "git push origin tag をしたらエラーに遭遇しました。"
-tags: ["git"]
+tags: ["git","error"]
 ---
 
 ## エラーに遭遇した状況
@@ -63,17 +63,17 @@ $ git push origin tag-function
   $ git tag -a <tag-name> <commit-hash> -m "message"
   ```
 
-ここだけの話、**commit-hash**が何か分からないという方は、下記のコマンドを打ってみてください。
+ここだけの話、**コミットID**が何か分からないという方は、下記のコマンドを打ってみてください。
 
 ```
-git log --oneline
+git log
 ```
 
-logの一番左にある文字列がcommit hashです。
+logの一番上にある文字列がcommit commit idです。
 
 今までやってきたcommitにランダムな文字列が与えれています。
 
-その **commit-hash** を指定して、様々な操作が行えます。
+その **コミットID** を指定して、様々な操作が行えます。
 
 #### タグ表示
 
