@@ -10,9 +10,8 @@ const TagItems = ({ tags }) => (
   <div className="tags">
     {( tags || []).map(tag => (
       <Link key={tag} className="tag-link" to={`/tags/${tag}/`}>
-        <span><FontAwesomeIcon icon={faTag} color="gray" /></span>
+        <span className="tag-icon"><FontAwesomeIcon icon={faTag} color="gray" /></span>
         {tag}
-        　
       </Link>
     ))}
   </div>
