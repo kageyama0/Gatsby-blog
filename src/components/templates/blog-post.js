@@ -40,6 +40,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 <h1 className="post-title">
                   {post.frontmatter.title}
                 </h1>
+                
                 <TagItems key={tags} tags={tags} />
 
               </header>
