@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 // import Bio from "../components/bio"
 import Layout from "../layout/layout"
 import Seo from "../../elements/seo"
+import TagItems from "../../elements/tagItems"
 
 import {
   Container,
@@ -19,6 +20,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
+  const tags = post.frontmatter.tags
   const { previous, next } = pageContext
 
   return (
@@ -38,11 +40,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 <h1 className="post-title">
                   {post.frontmatter.title}
                 </h1>
-                <p>カテゴリ：
-                {post.frontmatter.tags.map((tag) =>
-                  <Link key={tag} to={`/tags/${tag}`}>{tag}</Link>
-                )}
-                </p>
+                <TagItems key={tags} tags={tags} />
 
               </header>
 
