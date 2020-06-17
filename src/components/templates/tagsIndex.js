@@ -2,7 +2,11 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../layout/layout"
-//import Seo from "../elements/seo"
+import Seo from "../../elements/seo"
+import TagItems from "../../elements/tagItems"
+import {
+  Container
+} from 'react-bootstrap'
 
 const TagsIndex = ({ data, pageContext, location }) => {
   const { tags, tagsCount } = pageContext
@@ -12,15 +16,14 @@ const TagsIndex = ({ data, pageContext, location }) => {
 
   return (
     <Layout title={siteTitle} author={author} location={location} >
-      <div>
-        {tags.map((tag) =>
-          <p key={tag}>{tag}</p>
-        )}
+      <Seo title="tag" />
+      <Container>
         <p>{tagsCount}種類のタグがあります</p>
+        <TagItems key={tags} tags={tags} />
         <p>
           <Link to="/tags">All tags</Link>
         </p>
-      </div>
+      </Container>
     </Layout>
   );
 };

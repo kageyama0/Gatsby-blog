@@ -4,6 +4,9 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../layout/layout"
 import Seo from "../../elements/seo"
+import {
+  Container
+} from 'react-bootstrap'
 
 const TagPage = ({ data, pageContext }) => {
   const { tag } = pageContext
@@ -15,17 +18,19 @@ const TagPage = ({ data, pageContext }) => {
   return (
     <Layout title={siteTitle} author={author}>
       <Seo title={tagHeader} />
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node: { fields: { slug }, frontmatter: { title } } }) => (
-          <li key={slug}>
-            <Link to={slug}>{title}</Link>
-          </li>
-        ))}
-      </ul>
-      <p>
-        <Link to="/tags">All tags</Link>
-      </p>
+      <Container>
+        <h1>{tagHeader}</h1>
+        <ul>
+          {edges.map(({ node: { fields: { slug }, frontmatter: { title } } }) => (
+            <li key={slug}>
+              <Link to={slug}>{title}</Link>
+            </li>
+          ))}
+        </ul>
+        <p>
+          <Link to="/tags">All tags</Link>
+        </p>
+      </Container>
     </Layout>
   );
 };

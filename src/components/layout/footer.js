@@ -17,19 +17,18 @@ const Footer = ({ title, author }) => {
     <footer>
       <Container>
         <Row noGutters={true}>
-          <Col
-            xs={12} md={4}
-            style={{ ...scale(0.5) }}
-          >
-            About me
+          <Col xs={12} md={4}>
+            <div>About me</div>
             <p
               style={{ fontSize:`.750rem` }}
             >
-              現在、京都大学大学院修士２年
+              現在(2020/6月)、京都大学大学院修士２年
               <br></br>
-              大学院入学直前の3月からプログラミングの勉強を開始
+              2019年3月からプログラミングの勉強を開始
               <br></br>
-              Web系受託開発会社でフロントエンジニアとしてアルバイトを９ヶ月ほど経験したが、今はやめて来年からエンジニアとして働く会社でアルバイト(リモート)
+              Web系受託開発会社でフロントエンジニアとしてアルバイトを９ヶ月ほど経験
+              <br></br>
+              現在は、来年からエンジニアとして働く会社でアルバイト(リモート)
             </p>
             <Link
               style={{ fontSize: `.750rem`}}
@@ -37,10 +36,10 @@ const Footer = ({ title, author }) => {
             >
               >>プロフィールの詳細はこちら
             </Link>
-            <Bio />
           </Col>
           <Col xs={12} md={4}>
-            Written by <strong>{author.name}</strong>
+            <div>SNS</div>
+            <Bio />
           </Col>
           <Col
             xs={12} md={4}

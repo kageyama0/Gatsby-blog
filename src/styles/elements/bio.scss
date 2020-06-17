@@ -1,5 +1,84 @@
-.small-link{
-  display: block;
-  font-size: .750rem;
+.cube {
+  width: 100%;
+  height: 50px;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
+
+.cube +.cube{
+margin:10px 0px;
+}
+
+.default-state {
+  -webkit-transform: translateZ(25px);
+  -moz-transform: translateZ(25px);
+  -o-transform: translateZ(25px);
+  -ms-transform: translateZ(25px);
+  transform: translateZ(25px);
+}
+.flip-to-top .active-state {
+  -webkit-transform: rotateX(90deg) translateZ(75px);
+  -moz-transform: rotateX(90deg) translateZ(75px);
+  -o-transform: rotateX(90deg) translateZ(75px);
+  -ms-transform: rotateX(90deg) translateZ(75px);
+  transform: rotateX(90deg) translateZ(75px);
+}
+.flip-to-bottom .active-state {
+  -webkit-transform: rotateX(-90deg) translateZ(-50px);
+  -moz-transform: rotateX(-90deg) translateZ(-50px);
+  -o-transform: rotateX(-90deg) translateZ(-50px);
+  -ms-transform: rotateX(-90deg) translateZ(-50px);
+  transform: rotateX(-90deg) translateZ(-50px);
+}
+.cube.flip-to-top:hover {
+  -webkit-transform: rotateX(-89deg);
+  -moz-transform: rotateX(-89deg);
+  -o-transform: rotateX(-89deg);
+  -ms-transform: rotateX(-89deg);
+  transform: rotateX(-89deg);
+}
+.cube.flip-to-bottom:hover {
+  -webkit-transform: rotateX(89deg);
+  -moz-transform: rotateX(89deg);
+  -o-transform: rotateX(89deg);
+  -ms-transform: rotateX(89deg);
+  transform: rotateX(89deg);
+}
+.cube {
+  text-align: center;
+  margin: 0 auto;
+}
+.default-state,
+.active-state {
+  height: 50px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 50px;
+  -webkit-transition: background 250ms ease;
+  -moz-transition: background 250ms ease;
+  -o-transition: background 250ms ease;
+  transition: background 250ms ease;
+}
+
+.cube:hover .active-state {
+  background: #fff;
+}
+
+.twitter {
+  background: #019AD1;
+}
+.qiita {
+  background: #4cb10d;
+}
+
+.github {
+  background: black;
+}

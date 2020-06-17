@@ -40,28 +40,55 @@ const Bio = () => {
   `)
 
   // author(name, summary) + social(twitter)
-  const social = data.site.siteMetadata
+  const social = data.site.siteMetadata.social
   return (
     <div>
-      <Link className="small-link" to={`https://twitter.com/${social.twitter}`}>
-        >> Twitter
-        <span><FontAwesomeIcon icon={faTwitter} color="#00acee" /></span>
-        やってます
-      </Link>
+      <div className="cube flip-to-top twitter">
+        <div className="default-state">
+          <span>
+            Twitter
+          </span>
+        </div>
 
-      <Link className="small-link" to={`${social.qiita}`}>
-        >>Qiita
-        <span>
-          <Image fixed={data.qiitaIcon.childImageSharp.fixed}/>
-        </span>
-      </Link>
+        <div className="active-state twitter">
+          <FontAwesomeIcon icon={faTwitter} color=" #019AD1" />
+          <span>
+            <Link className="small-link" to={`https://twitter.com/${social.twitter}`}>
+              Follow me!
+            </Link>
+          </span>
+        </div>
+      </div>
 
-      <Link className="small-link" to={`${social.github}`}>
-        >>Github
-        <span>
+      <div className="cube flip-to-top qiita">
+        <div className="default-state">
+          <span>Qiita</span>
+        </div>
+
+        <div className="active-state qiita">
+          <Image fixed={data.qiitaIcon.childImageSharp.fixed} />
+          <span>
+            <Link className="small-link" to={`${social.qiita}`}>
+              Qiitaの投稿記事一覧へ
+            </Link>
+          </span>
+        </div>
+      </div>
+
+      <div className="cube flip-to-top github">
+        <div className="default-state">
+          <span>Github</span>
+        </div>
+
+        <div className="active-state github">
           <FontAwesomeIcon icon={faGithub} color="black" />
-        </span>
-      </Link>
+          <span>
+            <Link className="small-link" to={`${social.github}`}>
+              Source Code
+            </Link>
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
