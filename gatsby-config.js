@@ -14,7 +14,7 @@ module.exports = {
       github: `https://github.com/kageyama0`,
     },
   },
-  
+
   plugins: [
     'gatsby-plugin-sass',
     {
@@ -90,5 +90,18 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        defaultCrumb: {
+          location: {
+            pathname: ">",
+          },
+          crumbLabel: "Home",
+          crumbSeparator: " > ",
+        },
+        usePathPrefix: '/blog',
+      }
+    }
   ],
 }

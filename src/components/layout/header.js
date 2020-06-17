@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { scale } from "../../utils/typography"
-//import Breadcrumb from "../../elements/breadcrumb"
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
 import {
   Container,
@@ -13,8 +13,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../../styles/components/layout/header.scss"
 
-const Header = ({ title, author, location }) => {
-  //console.log(location)
+const Header = ({ title, author, location, crumbLabel }) => {
+  console.log(location.pathname)
   return (
     <header
       style={{...scale(0.5)}}
@@ -57,7 +57,11 @@ const Header = ({ title, author, location }) => {
           </Row>
         </Container>
       </Navbar>
-      {/* <Breadcrumb location={location} /> */}
+      <Breadcrumb
+        location={location}
+        crumbLabel={crumbLabel}
+        crumbSeparator=" > "
+      />
     </header>
   )
 }

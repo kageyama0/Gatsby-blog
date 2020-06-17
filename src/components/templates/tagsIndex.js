@@ -3,24 +3,32 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../layout/layout"
 //import Seo from "../elements/seo"
+import TagItems from "../../elements/tagItems"
+import {
+  Container
+} from 'react-bootstrap'
 
 const TagsIndex = ({ data, pageContext, location }) => {
   const { tags, tagsCount } = pageContext
   //const { edges } = data.allMarkdownRemark;
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
+  const crumbLabel = "Tags"
 
   return (
-    <Layout title={siteTitle} author={author} location={location} >
-      <div>
-        {tags.map((tag) =>
-          <p key={tag}>{tag}</p>
-        )}
+    <Layout
+      title={siteTitle}
+      author={author}
+      location={location}
+      crumbLabel={crumbLabel}
+    >
+      <Container>
         <p>{tagsCount}種類のタグがあります</p>
+        <TagItems key={tags} tags={tags} />
         <p>
           <Link to="/tags">All tags</Link>
         </p>
-      </div>
+      </Container>
     </Layout>
   );
 };

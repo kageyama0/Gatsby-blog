@@ -17,16 +17,25 @@ import "../../styles/components/templates/blog-post.scss"
 // dataは、markdownファイルやmetadataなどのデータ
 // pageContext = (gatsby-node.js内での)context
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
+
+  const post = data.markdownRemark
   const tags = post.frontmatter.tags
+  const title = post.frontmatter.title
+  const crumbLabel = title
+
   const { previous, next } = pageContext
 
   return (
-    <Layout title={siteTitle} author={author} location={location} >
+    <Layout
+      title={siteTitle}
+      author={author}
+      location={location}
+      crumbLabel={crumbLabel}
+    >
       <Seo
-        title={post.frontmatter.title}
+        title={title}
         description={post.frontmatter.description || post.excerpt}
       />
       <Container>
@@ -40,7 +49,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 <h1 className="post-title">
                   {post.frontmatter.title}
                 </h1>
-                
+
                 <TagItems key={tags} tags={tags} />
 
               </header>

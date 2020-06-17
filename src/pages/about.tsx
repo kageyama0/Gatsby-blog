@@ -46,9 +46,15 @@ const About = ({ data,location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const social = data.site.siteMetadata.social
   const author = data.site.siteMetadata.author
+  const crumbLabel = "About me"
 
   return (
-    <Layout title={siteTitle} author={author} location={location} >
+    <Layout
+      title={siteTitle}
+      author={author}
+      location={location}
+      crumbLabel={crumbLabel}
+    >
       <Seo title="About me" />
       <Container>
         <Row>

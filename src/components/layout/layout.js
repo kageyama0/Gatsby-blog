@@ -10,13 +10,14 @@ import Footer from "./footer"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../styles/components/layout/layout.scss"
 
-const Layout = ({ title, author, children, location }) => {
+const Layout = ({ title, author, children, location, crumbLabel }) => {
   return (
     <div>
       <Header
         title={title}
         author={author}
         location={location}
+        crumbLabel={crumbLabel}
       />
 
       <main

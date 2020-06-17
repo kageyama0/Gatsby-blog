@@ -44,12 +44,14 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
   const posts = data.allMarkdownRemark.edges
+  const crumbLabel = "Home"
 
   return (
     <Layout
       title={siteTitle}
       author={author}
       location={location}
+      crumbLabel={crumbLabel}
     >
       <Seo title="Home" />
       <Container>
