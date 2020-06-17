@@ -3,7 +3,7 @@ title: git push のエラーのおかげで git tag の存在を知りました�
 author: kageyama
 date: "2020-06-10T17:53:03.284Z"
 description: "git push origin tag をしたらエラーに遭遇しました。"
-tags: ["git"]
+tags: ["git","error"]
 ---
 
 ## エラーに遭遇した状況
