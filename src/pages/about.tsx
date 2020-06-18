@@ -2,6 +2,7 @@ import React from "react"
 import { PageProps, graphql } from "gatsby"
 import Layout from "../components/layout/layout.js"
 import Seo from "../elements/seo"
+import Bio from "../elements/bio"
 import {
   Container,
   Row,
@@ -74,7 +75,7 @@ const About = ({ data,location }: PageProps<Data>) => {
               <h4>ツール / Tools</h4>
               <p>OS：Windows10 / Macbook Pro(最近はMac) / Linux(Ubuntu18.04) </p>
               <p>Editor：Visual Code Studio</p>
-              <p>etc：git / Github / Notion </p>
+              <p>etc：Docker / git / Github / Notion </p>
 
               <h4>プログラミング歴 / Experience</h4>
               <p>現在、京都大学大学院修士２年</p>
@@ -92,17 +93,13 @@ const About = ({ data,location }: PageProps<Data>) => {
 
               <h2>SNS</h2>
 
-              <p><a href={`https://twitter.com/${social.twitter}`}>Twitter</a></p>
-              <p><a href={`${social.qiita}`}>Qiita</a></p>
-              <p><a href={`${social.github}`}>Github</a></p>
+              <Bio />
 
               <h2>趣味 / Hobby</h2>
 
               <p>ゲーム ( LoL / TFT / 将棋 )</p>
               <p>料理 ( 得意料理：パスタ )</p>
               <p>美味しいものを食べる( 焼肉 , 寿司 , 和食)</p>
-
-
 
             </section>
 

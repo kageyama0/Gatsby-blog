@@ -28,7 +28,7 @@ const TagPage = ({ data, pageContext }) => {
           ))}
         </ul>
         <p>
-          <Link to="/tags">All tags</Link>
+          <Link to="/tags">タグ一覧へ</Link>
         </p>
       </Container>
     </Layout>

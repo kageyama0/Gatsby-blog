@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../layout/layout"
 import Seo from "../../elements/seo"
@@ -20,9 +20,6 @@ const TagsIndex = ({ data, pageContext, location }) => {
       <Container>
         <p>{tagsCount}種類のタグがあります</p>
         <TagItems key={tags} tags={tags} />
-        <p>
-          <Link to="/tags">All tags</Link>
-        </p>
       </Container>
     </Layout>
   );

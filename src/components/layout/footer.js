@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { scale } from "../../utils/typography"
 import Bio from "../../elements/bio"
 
 import {
@@ -8,17 +7,18 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
+import "../../styles/components/layout/footer.scss"
 
 
 const Footer = ({ title, author }) => {
   return (
     <footer>
       <Container>
-        <Row noGutters={true}>
-          <Col xs={12} md={4}>
-            <div>About me</div>
+        <Row>
+          <Col xs={12} md={6}>
+            <div className="footer-title">About me</div>
             <p
               style={{ fontSize:`.750rem` }}
             >
@@ -37,17 +37,12 @@ const Footer = ({ title, author }) => {
               >>プロフィールの詳細はこちら
             </Link>
           </Col>
-          <Col xs={12} md={4}>
-            <div>SNS</div>
+          <Col xs={12} md={3}>
+            <div className="footer-title">SNS</div>
             <Bio />
           </Col>
-          <Col
-            xs={12} md={4}
-            style={{
-              paddingTop: `10px`
-            }}
-          >
-            Written by <strong>{author.name}</strong>
+          <Col xs={12} md={3}>
+            <div className="footer-title">Portfolio</div>
           </Col>
         </Row>
       </Container>
