@@ -7,13 +7,13 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Link } from 'gatsby';
 import Image from "gatsby-image"
 
 //for fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 import "../styles/elements/bio.scss"
 
@@ -45,47 +45,46 @@ const Bio = () => {
     <div>
       <div className="cube flip-to-top twitter">
         <div className="default-state">
-          <span>
-            Twitter
-          </span>
+          <FontAwesomeIcon icon={faExternalLinkAlt} color=" white" />
+          <span> Twitter</span>
         </div>
 
         <div className="active-state twitter">
           <FontAwesomeIcon icon={faTwitter} color=" #019AD1" />
-          <span>
-            <Link className="small-link" to={`https://twitter.com/${social.twitter}`}>
-              Follow me!
-            </Link>
-          </span>
+          <a className="small-link" href={`https://twitter.com/${social.twitter}`}>
+            Follow me!
+          </a>
         </div>
       </div>
 
       <div className="cube flip-to-top qiita">
         <div className="default-state">
-          <span>Qiita</span>
+          <FontAwesomeIcon icon={faExternalLinkAlt} color=" white" />
+          <span> Qiita</span>
         </div>
 
         <div className="active-state qiita">
           <Image fixed={data.qiitaIcon.childImageSharp.fixed} />
           <span>
-            <Link className="small-link" to={`${social.qiita}`}>
+            <a className="small-link" href={`${social.qiita}`}>
               Qiitaの投稿記事一覧へ
-            </Link>
+            </a>
           </span>
         </div>
       </div>
 
       <div className="cube flip-to-top github">
         <div className="default-state">
-          <span>Github</span>
+          <FontAwesomeIcon icon={faExternalLinkAlt} color=" white" />
+          <span> Github</span>
         </div>
 
         <div className="active-state github">
           <FontAwesomeIcon icon={faGithub} color="black" />
           <span>
-            <Link className="small-link" to={`${social.github}`}>
+            <a className="small-link" href={`${social.github}`}>
               Source Code
-            </Link>
+            </a>
           </span>
         </div>
       </div>
