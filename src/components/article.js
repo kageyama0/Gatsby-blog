@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-//import Image from "gatsby-image"
+import Img from "gatsby-image"
 
 import TagItems from "../elements/tagItems"
 import "../styles/components/article.scss"
@@ -22,6 +22,9 @@ const Article = ({ node }) => {
 
       <TagItems key={tags} tags={tags} />
       <section>
+        <Img
+          fluid={node.frontmatter.image.childImageSharp.fluid}
+        />
         <p
           className="article-description"
           dangerouslySetInnerHTML={{ __html: text }}

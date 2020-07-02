@@ -27,11 +27,11 @@ type Data = {
       node: {
         excerpt: string
         frontmatter: {
+          url: string
           title: string
           date: string
           description: string
           tags: string[]
-          url: string
         }
         fields: {
           slug: string
@@ -96,6 +96,13 @@ export const pageQuery = graphql`
             title
             description
             tags
+            image{
+              childImageSharp{
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

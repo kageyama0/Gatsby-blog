@@ -54,35 +54,32 @@ content/blogからのパスでありファイル名がslugになる。(❌)
   やりたいことは,previous.node.idとかをしたい
   --> onCreateNode
 
-
-
-        <Container>
-          <Row>
-            <Col className="picks" xs={12}>
-
-            </Col>
-            <article itemScope="itemscope" itemType="http://shema.org/BlogPosting" itemProp="blogPost">
-              <section>
-                <Col xs={12} sm={8} itemProp="articleBody">
-                  <div itemProp="author" itemScope itemType="https://shema.org/Person" style={{ display: "none" }}>
-                    <span itemProp="name">{author}</span>
-                  </div>
-                  <div itemProp="publisher" itemScope itemType="https://shema.org/Organization" style={{ display: "none" }}>
-                    <span itemProp="name">飽き性エンジニア</span>
-                    <span itemProp="name">{author}</span>
-                  </div>
-                  {children}
-                </Col>
-              </section>
-            </article>
-          </Row>
-        </Container>
-
-
 markdownファイルのカスタムには
 yarn add gatsby-transformer-remark gatsby-remark-prismjs prismjs
 参考：https://littlebylittle.work/2020/01/gatsby-syntax-highlighting/
 
 
-Gatsbyプラグイン４５選
-https://qiita.com/Takumon/items/da8347f81a9f021b637f
+・Gatsbyプラグイン４５選
+  https://qiita.com/Takumon/items/da8347f81a9f021b637f
+
+・Gatsby-imageに関して
+  https://www.gatsbyjs.org/packages/gatsby-image/
+  ・GraphQLでこういう風に書く。
+  　・親要素のサイズに対応したい場合：GatsbyImageSharpFluid
+  　・固定したサイズにしたい場合：GatsbyImageSharpFixed
+    image{
+      childImageSharp{
+        fluid(maxWidth: 750) { // <-- fluid or fixed
+          ...GatsbyImageSharpFluid //ココ
+        }
+      }
+    }
+
+  ・.js内では....
+  　 <Img
+      fluid={node.frontmatter.image.childImageSharp.fluid}
+    />
+
+    <Img
+      fix={node.frontmatter.image.childImageSharp.fix}
+    />
