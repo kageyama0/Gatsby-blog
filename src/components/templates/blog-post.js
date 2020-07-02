@@ -18,6 +18,7 @@ import "../../styles/components/templates/blog-post.scss"
 // pageContext = (gatsby-node.js内での)context
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
+  console.log(post)
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
   const tags = post.frontmatter.tags
@@ -40,7 +41,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 <h1 className="post-title">
                   {post.frontmatter.title}
                 </h1>
-                
+
                 <TagItems key={tags} tags={tags} />
 
               </header>
@@ -99,8 +100,9 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
-        title
+        url
         date(formatString: "MMMM DD, YYYY")
+        title
         description
         tags
       }

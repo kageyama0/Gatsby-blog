@@ -31,6 +31,7 @@ type Data = {
           date: string
           description: string
           tags: string[]
+          url: string
         }
         fields: {
           slug: string
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            url
             date(formatString: "MMMM DD, YYYY")
             title
             description

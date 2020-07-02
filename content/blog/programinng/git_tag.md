@@ -1,4 +1,5 @@
 ---
+url: "git_tag"
 title: git push のエラーのおかげで git tag の存在を知りました。
 author: kageyama
 date: "2020-06-10T17:53:03.284Z"
@@ -111,7 +112,7 @@ $ git tag -d <old-name>
 一つのcommitに複数のtagをつけることができるので、古い名前のタグがついているやつに新しい名前をつけてから古いタグを削除すればいいという感じです。
 
 ***「まあ一通り操作方法は分かったけど、いつ使うのこれ...」***
-![](./kaisya_komaru_man.png)
+![](./images/komaru_man.jpg)
 
 と思いますよね。
 

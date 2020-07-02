@@ -9,14 +9,19 @@ module.exports = {
     keywords:`Gatsby blog engineer エンジニア SEO`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: `akisyoengineer`,
-      qiita: `https://qiita.com/kageyama0`,
+      twitter:`akisyoengineer`,
+      qiita:  `https://qiita.com/kageyama0`,
       github: `https://github.com/kageyama0`,
     },
   },
-  
+
   plugins: [
     'gatsby-plugin-sass',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-feed`,
+
+    // content/blog にあるファイルを読み込んでソースとして読み込む
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -24,6 +29,7 @@ module.exports = {
         name: `blog`,
       },
     },
+    // content/assets にあるファイルを読み込んでソースとして読み込む
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -31,14 +37,18 @@ module.exports = {
         name: `assets`,
       },
     },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 800,
+              linkImagesToOriginal: true,
             },
           },
           {
@@ -57,20 +67,15 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -80,7 +85,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/images/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
