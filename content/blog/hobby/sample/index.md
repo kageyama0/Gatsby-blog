@@ -5,6 +5,7 @@ author: kageyama
 date: "2020-05-01T22:12:03.284Z"
 description: "Blog"
 tags: ["exam1"]
+image: "../../../assets/images/git_long.jpg"
 ---
 
 This is my first post on my new fake blog! How exciting!
