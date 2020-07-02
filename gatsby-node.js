@@ -1,18 +1,34 @@
 const path = require(`path`)
-const shortid = require('shortid');
+// const shortid = require('shortid');
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
+// exports.onCreateNode = ({ node, actions, getNode }) => {
+//   const { createNodeField } = actions
+
+//   if (node.internal.type === `MarkdownRemark`) {
+//     const filePath = createFilePath({ node, getNode })
+//     //console.log(node.fileAbsolutePath)
+//     // console.log(filePath)
+
+//     // 新しく作ったフィールド"slug"の値として受け取る変数名をvalueにしないとなぜかバグる
+//     const id = shortid.generate()
+//     const value = filePath + id
+//     createNodeField({
+//       name: `slug`,
+//       node,
+//       value,
+//     })
+//   }
+// }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const filePath = createFilePath({ node, getNode })
-    //console.log(node.fileAbsolutePath)
-    // console.log(filePath)
-
     // 新しく作ったフィールド"slug"の値として受け取る変数名をvalueにしないとなぜかバグる
-    const id = shortid.generate()
-    const value = filePath + id
+    const url = node.frontmatter.url
+    const value = filePath + url
     createNodeField({
       name: `slug`,
       node,

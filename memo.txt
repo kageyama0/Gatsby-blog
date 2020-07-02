@@ -1,24 +1,6 @@
 https://github.com/gatsbyjs/gatsby-starter-blog
 https://qiita.com/irico/items/cf87eb29ecaf7e135fcd#4-%E3%82%AE%E3%83%A3%E3%83%84%E3%83%93%E3%83%BC%E3%81%A7%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%89%B1%E3%81%84
 
-<br></br>
-HTML,CSSを軽く学んだ後、3月下旬からWeb系受託開発会社でアルバイトを開始
-<br></br>
-バイトでは、
-<br></br>
-・Three.jsを用いた開発を単独で行った
-<br></br>
-・Djangoを使ってWebアプリをチーム開発
-<br></br>
-・Unityを使ったゲームアプリ開発
-<br></br>
-などを経験した。
-
-              <br></br>
-言語 : python/JavaScript/HTML/CSS...
-<br></br>
-フレームワーク：Three.js/React.js/Django/Ruby on rails
-
 
 ----------------------
 http://localhost:8000/___graphql にアクセスして
