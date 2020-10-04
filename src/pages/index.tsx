@@ -27,7 +27,6 @@ type Data = {
       node: {
         excerpt: string
         frontmatter: {
-          url: string
           title: string
           date: string
           description: string
@@ -44,7 +43,7 @@ type Data = {
 const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const author = data.site.siteMetadata.author
-  const posts = data.allMarkdownRemark.edges
+  const articles = data.allMarkdownRemark.edges
 
   return (
     <Layout
@@ -55,13 +54,13 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
       <Seo title="Home" />
       <Container>
         <Row>
-          <Col xs={12} sm={8}>
-            {posts.map(({ node }) => (
+          <Col md={9}>
+            {articles.map(({ node }) => (
               <Article key={node.fields.slug} node={node} />
             ))}
           </Col>
-          <Col xs={12} sm={4}>
-              サイドバー
+          <Col md={3}>
+              サイドバー予定地
           </Col>
         </Row>
       </Container>
@@ -91,7 +90,6 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            url
             date(formatString: "MMMM DD, YYYY")
             title
             description

@@ -27,8 +27,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const filePath = createFilePath({ node, getNode })
     // 新しく作ったフィールド"slug"の値として受け取る変数名をvalueにしないとなぜかバグる
-    const url = node.frontmatter.url
-    const value = filePath + url
+    const value = filePath
     createNodeField({
       name: `slug`,
       node,
@@ -65,13 +64,13 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // posts = これまで作成したブログたち
-  const posts = result.data.allMarkdownRemark.edges
+  // articles = これまで作成したブログたち
+  const articles = result.data.allMarkdownRemark.edges
   var tagsArray = []
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+  articles.forEach((post, index) => {
+    const previous = index === articles.length - 1 ? null : articles[index + 1].node
+    const next = index === 0 ? null : articles[index - 1].node
     const tags = post.node.frontmatter.tags
     tagsArray = tagsArray.concat(tags)
 

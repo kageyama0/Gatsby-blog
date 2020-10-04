@@ -8,7 +8,7 @@ const NotFoundPage = () => {
     <div>
       <Seo title="404: Not Found" />
       <h1>あーこれ404エラーっすねー</h1>
-      <p>多分このページ存在しないんで、URLちゃんと入力してください。</p>
+      <p>こんなページないんで、URLちゃんと入力してくださーいw</p>
     </div>
   )
 }

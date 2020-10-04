@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `飽き性エンジニアのブログ`,
+    title: `よわよわエンジニア成長日記`,
     author: {
-      name: `Kageyama`,
+      name: `kageyama`,
       summary: `ネットワークからフロントまで何でもつまみ食いするエンジニア`,
     },
     description: `Gatsbyで作成したブログです。エンジニア。`,
@@ -73,7 +73,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-179561022-1`,
       },
     },
     {

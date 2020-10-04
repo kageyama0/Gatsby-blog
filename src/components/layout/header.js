@@ -8,23 +8,18 @@ import {
   Row,
   Col,
   Nav,
-  Navbar
+  Navbar,
+  NavDropdown
 } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../../styles/components/layout/header.scss"
 
 const Header = ({ title, author, location }) => {
-  //console.log(location)
   return (
-    <header
-      style={{...scale(0.5)}}
-    >
+    <header style={{ ...scale(0.5) }}>
       <Container>
-        <Row noGutters={true}>
-          <Col
-            xs={12} md={6}
-            style={{ ...scale(0.5) }}
-          >
+        <Row noGutters={true} style={{ marginTop: `30px` }}>
+          <Col xs={12} md={6}>
             <Link
               style={{
                 boxShadow: `none`,
@@ -36,26 +31,40 @@ const Header = ({ title, author, location }) => {
             </Link>
           </Col>
           <Col
-            xs={6} md={6}
+            xs={10}
+            md={6}
             style={{
-              paddingTop: `10px`
+              paddingTop: `10px`,
             }}
           >
-            Written by <strong>{author.name}</strong>
+            <div
+              style={{
+                fontSize: `15px`,
+                color: `gray`,
+              }}
+            >
+              Written by {author.name}
+            </div>
           </Col>
         </Row>
       </Container>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Row>
-            <Nav xs={12} className="mr-auto">
-              <Nav.Link className="header-nav" href="/">Home</Nav.Link>
-              <Nav.Link className="header-nav" href="/about">About me</Nav.Link>
-              <Nav.Link className="header-nav" href="#Blog">Blog</Nav.Link>
-              <Nav.Link className="header-nav" href="/tags">Tags</Nav.Link>
-            </Nav>
-          </Row>
-        </Container>
+
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/about">About me</Nav.Link>
+            <Nav.Link href="#programming">Programming</Nav.Link>
+            <NavDropdown title="My Life" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Diary</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/tags">Tags</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
       {/* <Breadcrumb location={location} /> */}
     </header>

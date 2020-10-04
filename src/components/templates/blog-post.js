@@ -32,7 +32,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <Container>
         <Row>
-          <Col xs={12} sm={8} className="post-wrap">
+          <Col xs={12} sm={9} className="post-wrap">
             <article>
               <header>
                 <p className="post-date">
@@ -73,7 +73,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </nav>
             </article>
           </Col>
-          <Col xs={12} sm={4}>
+          <Col xs={12} sm={3}>
             サイドバー
           </Col>
         </Row>
@@ -100,7 +100,6 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
-        url
         date(formatString: "MMMM DD, YYYY")
         title
         description

@@ -62,34 +62,33 @@ const About = ({ data,location }: PageProps<Data>) => {
               <h2>スキル / Skills</h2>
 
               <h4>プログラミング言語 / Language</h4>
-              <p> ★5 : Good  -->  ★1 : not good</p>
+              <p> ★5 : Good  --{'>'}  ★1 : not good</p>
               <p>HTML：★★★★☆</p>
               <p>CSS：★★☆☆☆</p>
               <p>JavaScript：★★☆☆☆</p>
               <p>Python：★★★☆☆</p>
-              <p>Ruby：★☆☆☆☆</p>
 
               <h4>フレームワーク / Framework</h4>
               <p>Pug / Sass / bootstrap4 / Three.js / React.js / Gatsby.js / Django / Ruby on rails ....</p>
 
               <h4>ツール / Tools</h4>
-              <p>OS：Windows10 / Macbook Pro(最近はMac) / Linux(Ubuntu18.04) </p>
-              <p>Editor：Visual Code Studio</p>
-              <p>etc：Docker / git / Github / Notion </p>
+              <p>OS：Windows10 / Mac / Linux(Ubuntu、CentOS) </p>
+              <p>Editor：Visual Studio　Code</p>
+              <p>etc：Docker / git / Github </p>
 
               <h4>プログラミング歴 / Experience</h4>
               <p>現在、京都大学大学院修士２年</p>
               <p>2019年3月からプログラミングの勉強を開始</p>
-              <p>2019年3月下旬からWeb系受託開発会社で主にフロントエンドエンジニアとしてアルバイトを経験した。</p>
+              <p>2019年3月下旬からWeb系受託開発会社で主にエンジニアとしてアルバイトを経験した。</p>
               <p>バイトをさせてもらっていた時は、Djangoでのアプリ開発、Three.jsを使った機能を単独で開発、Unityを使ったちょっとしたゲームの開発などを経験させてもらった。</p>
               <p>しかし、アルバイト先の事情で2019年12月に退職した。</p>
-              <p>2020年4月からは、内定先の会社でアルバイトをしている(リモート)</p>
+              <p>2020年4月からは、内定先の会社で研修兼アルバイトをしている(リモート)</p>
 
               <h2>経歴 / Career</h2>
 
               <p>2014.4 ~ 2019.3 : 京都大学工学部</p>
               <p>2019.4 ~ 2021.3 : 京都大学大学院修士過程</p>
-              <p>2021.4 ~ : engineer</p>
+              <p>2021.4 ~ : 東京でエンジニア</p>
 
               <h2>SNS</h2>
 
@@ -97,9 +96,9 @@ const About = ({ data,location }: PageProps<Data>) => {
 
               <h2>趣味 / Hobby</h2>
 
-              <p>ゲーム ( LoL / TFT / 将棋 )</p>
+              <p>ゲーム ( LoL / 将棋 / 麻雀 )</p>
               <p>料理 ( 得意料理：パスタ )</p>
-              <p>美味しいものを食べる( 焼肉 , 寿司 , 和食)</p>
+              <p>美味しいものを食べる( 焼肉 , 寿司 , 和食 が好きです)</p>
 
             </section>
 

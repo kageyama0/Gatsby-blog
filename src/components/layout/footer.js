@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import "../../styles/components/layout/footer.scss"
 
 
-const Footer = ({ title, author }) => {
+const Footer = () => {
   return (
     <footer>
       <Container>
@@ -22,19 +22,19 @@ const Footer = ({ title, author }) => {
             <p
               style={{ fontSize:`.750rem` }}
             >
-              現在(2020/6月)、京都大学大学院修士２年
+              現在(2020/10月)、京都大学大学院修士２年
               <br></br>
               2019年3月からプログラミングの勉強を開始
               <br></br>
-              Web系受託開発会社でフロントエンジニアとしてアルバイトを９ヶ月ほど経験
+              Web系受託開発会社でエンジニアとしてアルバイトを９ヶ月ほど経験
               <br></br>
-              現在は、来年からエンジニアとして働く会社でアルバイト(リモート)
+              現在は、来年からエンジニアとして働く会社で研修的なことも受けつつアルバイト(リモート)
             </p>
             <Link
               style={{ fontSize: `.750rem`}}
               to={`/about/`}
             >
-              >>プロフィールの詳細はこちら
+              {'>>'}プロフィールの詳細はこちら
             </Link>
           </Col>
           <Col xs={12} md={3}>
